@@ -12,10 +12,15 @@
     "autoload": {
         "files": [
             "src/Differ.php",
-            "src/Parser.php"
+            "src/Parser.php",
+            "src/render/render.php",
+            "src/render/stylish.php",
+            "src/render/plain.php",
+            "src/render/pretty.php"
         ]
     },
     "require": {
-        "docopt/docopt": "^1.0"
+        "docopt/docopt": "^1.0",
+        "symfony/yaml": "^5.3"
     }
 }

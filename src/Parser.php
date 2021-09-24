@@ -2,6 +2,8 @@
 
 namespace Diffgame\Parser;
 
+use Symfony\Component\Yaml\Yaml;
+
 function parse(string $path)
 {
     if (!file_exists($path)) {
@@ -16,9 +18,11 @@ function parse(string $path)
     }
     switch ($extension) {
         case "json":
-            return json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+            return json_decode($content, true, 512, JSON_THROW_ON_ERROR);
         case "yml":
-            print_r("yaml");
+            return Yaml::parse($content);
+        case "yaml":
+            return Yaml::parse($content);
         default:
             throw new \Exception("Format {$extension} not supported.");
     }
