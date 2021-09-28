@@ -6,6 +6,11 @@ jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v1
-        - uses: michaelw90/PHP-Lint@master
+    - name: Validate composer.json and composer.lock
+      run: composer validate
 
+    - name: Install
+      run: make install
+      
+    - name: Run linter
+      run: make lint
