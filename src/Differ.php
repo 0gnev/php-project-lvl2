@@ -37,9 +37,9 @@ function makeDiff(array $before, array $after)
 function boolToString(array $array)
 {
     return array_map(function ($value) {
-        if ($value === True) {
+        if ($value === true) {
             $value = "true";
-        } elseif ($value === False) {
+        } elseif ($value === false) {
             $value = "false";
         }
         return $value;

@@ -2,30 +2,26 @@
 
 namespace Diffgame\Render;
 
-function stylish ($arr)
+function stylish($arr)
 {
-    echo "{";
-    echo "\n";
+    $string = "{\n";
     foreach ($arr as $item) {
         switch ($item["typeNode"]) {
             case "unchanged":
-                print_r("    " . $item["key"] . ": " . $item["oldValue"]);
-                echo "\n";
+                $string = $string . "    " . $item["key"] . ": " . $item["oldValue"] . "\n";
                 break;
             case "changed":
-                print_r("  - " . $item["key"] . ": " . $item["oldValue"] . "\n");
-                print_r("  + " . $item["key"] . ": " . $item["newValue"]);
-                echo "\n";
+                $string = $string . "  - " . $item["key"] . ": " . $item["oldValue"] . "\n";
+                $string = $string . "  + " . $item["key"] . ": " . $item["newValue"] . "\n";
                 break;
             case "removed":
-                print_r("  - " . $item["key"] . ": " . $item["oldValue"]);
-                echo "\n";
+                $string = $string . "  - " . $item["key"] . ": " . $item["oldValue"] . "\n";
                 break;
             case "added":
-                print_r("  + " . $item["key"] . ": " . $item["newValue"]);
-                echo "\n";
+                $string = $string . "  + " . $item["key"] . ": " . $item["newValue"] . "\n";
                 break;
         }
     }
-    echo "}";
+    $string = $string .  "}";
+    return $string;
 }

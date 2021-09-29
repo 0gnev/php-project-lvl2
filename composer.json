@@ -2,8 +2,8 @@
     "name": "hexlet/code",
     "authors": [
         {
-          "name": "0gnev",
-          "email": "j.kodanavi@gmail.com"
+            "name": "0gnev",
+            "email": "j.kodanavi@gmail.com"
         }
     ],
     "bin": [
@@ -19,8 +19,16 @@
             "src/render/pretty.php"
         ]
     },
+    "scripts": {
+        "phpcs": "phpcs",
+        "phpunit": "phpunit"
+    },
     "require": {
         "docopt/docopt": "^1.0",
         "symfony/yaml": "^5.3"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "*"
     }
 }
