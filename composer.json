@@ -1,5 +1,8 @@
 {
     "name": "hexlet/code",
+    "description": "The second project in the profession of PHP training platform Hexlet",
+    "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "0gnev",
