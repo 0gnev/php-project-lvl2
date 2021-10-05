@@ -1,6 +1,6 @@
 <?php
 
-namespace Diffgame\Render\Json;
+namespace Differ\Render\Json;
 
 function json($ast)
 {

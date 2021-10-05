@@ -1,6 +1,6 @@
 <?php
 
-namespace Diffgame\Render\Plain;
+namespace Differ\Render\Plain;
 
 const ADDED = "Property '%s' was added with value: %s";
 const REMOVED = "Property '%s' was removed";

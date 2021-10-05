@@ -1,9 +1,9 @@
 <?php
 
-namespace Diffgame\Differ;
+namespace Differ\Differ;
 
-use function Diffgame\Parser\parse;
-use function Diffgame\Render\render;
+use function Differ\Parser\parse;
+use function Differ\Render\render;
 
 function genDiff(string $firstFilePath, string $secondFilePath, $format = "stylish")
 {

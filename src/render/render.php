@@ -1,10 +1,10 @@
 <?php
 
-namespace Diffgame\Render;
+namespace Differ\Render;
 
-use function Diffgame\Render\Json\json;
-use function Diffgame\Render\Plain\plain;
-use function Diffgame\Render\Stylish\stylish;
+use function Differ\Render\Json\json;
+use function Differ\Render\Plain\plain;
+use function Differ\Render\Stylish\stylish;
 
 function render($arr, $format)
 {

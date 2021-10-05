@@ -1,10 +1,10 @@
 <?php
 
-namespace Diffgame\Phpunit\Differ;
+namespace Differ\Phpunit\Differ;
 
 use PHPUnit\Framework\TestCase;
 
-use function Diffgame\Differ\genDiff;
+use function Differ\Differ\genDiff;
 
 class DifferTest extends TestCase
 {
