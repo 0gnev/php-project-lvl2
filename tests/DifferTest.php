@@ -25,5 +25,9 @@ class DifferTest extends TestCase
         $result2plain = genDiff($before2, $after2, "plain");
         $expected2plain = file_get_contents(__DIR__ . "/fixtures/expected2plain.txt");
         $this->assertEquals($expected2plain, $result2plain);
+
+        $result2json = genDiff($before2, $after2, "json");
+        $expected2json = file_get_contents(__DIR__ . "/fixtures/expected2json.txt");
+        $this->assertEquals($expected2json, $result2json);
     }
 }

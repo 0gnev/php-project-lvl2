@@ -13,7 +13,6 @@ function plain($ast)
         return getPlain($item, '');
     }, $ast);
     $arr = array_filter(array_flatten($arr));
-    usort($arr, "strnatcmp");
     return implode("\n", $arr);
 }
 
