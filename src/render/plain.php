@@ -55,8 +55,10 @@ function getValue($value)
             return VALUE_IS_ARRAY;
         case 'NULL':
             return 'null';
-        default:
+        case 'string':
             return "'" . $value . "'";
+        default:
+            return $value;
     }
 }
 

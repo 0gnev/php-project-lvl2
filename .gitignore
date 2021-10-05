@@ -1,3 +1,4 @@
 /vendor/
 /first.json
 /second.json
+/.phpunit.result.cache
