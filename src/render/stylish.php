@@ -1,6 +1,6 @@
 <?php
 
-namespace Diffgame\Render;
+namespace Diffgame\Render\Stylish;
 
 const TAB_SPACE = '    ';
 const ADDED = '  + ';

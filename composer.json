@@ -17,6 +17,7 @@
             "src/Differ.php",
             "src/Parser.php",
             "src/render/render.php",
+            "src/render/plain.php",
             "src/render/stylish.php"
         ]
     },
