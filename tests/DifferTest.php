@@ -15,5 +15,11 @@ class DifferTest extends TestCase
         $after = __DIR__ . "/fixtures/after.yml";
         $result = genDiff($before, $after);
         $this->assertEquals($expected, $result);
+
+        $expected2 = file_get_contents(__DIR__ . "/fixtures/expected2.txt");
+        $before2 = __DIR__ . "/fixtures/before2.json";
+        $after2 = __DIR__ . "/fixtures/after2.json";
+        $result2 = genDiff($before2, $after2);
+        $this->assertEquals($expected2, $result2);
     }
 }

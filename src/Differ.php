@@ -15,43 +15,36 @@ function genDiff(string $firstFilePath, string $secondFilePath, $format = "styli
 
 function makeDiff(array $before, array $after)
 {
-    $before = boolToString($before);
-    $after = boolToString($after);
     $unionKeys = array_unique(array_merge(array_keys($before), array_keys($after)));
     sort($unionKeys);
     return array_map(function ($key) use ($before, $after) {
         if (array_key_exists($key, $before) && array_key_exists($key, $after)) {
-            if ($before[$key] === $after[$key]) {
-                return buildNode("unchanged", $key, $before[$key], $after[$key]);
+            if (is_array($before[$key]) && is_array($after[$key])) {
+                $node =  buildNode('nested', $key, null, null, makeDiff($before[$key], $after[$key]));
+            } elseif ($before[$key] === $after[$key]) {
+                $node = buildNode("unchanged", $key, $before[$key], $after[$key]);
             } else {
-                return buildNode("changed", $key, $before[$key], $after[$key]);
+                $node = buildNode("changed", $key, $before[$key], $after[$key]);
             }
-        } elseif (array_key_exists($key, $before) && !array_key_exists($key, $after)) {
-            return buildNode("removed", $key, $before[$key], null);
-        } elseif (!array_key_exists($key, $before) && array_key_exists($key, $after)) {
-            return buildNode("added", $key, null, $after[$key]);
         }
+        if (array_key_exists($key, $before) && !array_key_exists($key, $after)) {
+            $node = buildNode("removed", $key, $before[$key], null);
+        }
+        if (!array_key_exists($key, $before) && array_key_exists($key, $after)) {
+            $node = buildNode("added", $key, null, $after[$key]);
+        }
+        return $node;
     }, $unionKeys);
 }
 
-function boolToString(array $array)
-{
-    return array_map(function ($value) {
-        if ($value === true) {
-            $value = "true";
-        } elseif ($value === false) {
-            $value = "false";
-        }
-        return $value;
-    }, $array);
-}
-function buildNode($typeNode, $key, $oldValue, $newValue)
+function buildNode($typeNode, $key, $oldValue, $newValue, $children = null)
 {
     $node = [
         'typeNode' => $typeNode,
         'key' => $key,
         'oldValue' => $oldValue,
-        'newValue' => $newValue
+        'newValue' => $newValue,
+        'children' => $children
     ];
     return $node;
 }
